@@ -24,3 +24,7 @@
   user-drag: none;
   user-select: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}

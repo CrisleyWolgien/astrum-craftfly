@@ -16,7 +16,7 @@ function Nossos_Servicos() {
 
   return (
     <>
-      <article className="w-full mt-5 lg:mt-20">
+      <article className="w-full mt-5 lg:mt-20 pt-24 " id="Nossos_Servicos">
         <section className="w-full pb-5 px-6">
           <div className="mb_8">
             {/* <!-- título --> */}
@@ -44,9 +44,7 @@ function Nossos_Servicos() {
               TextButtonSlide="Saiba Mais"
               Add_Style_Slide="lg:w-[18%] justify-between"
             />
-
             {/* fim slide 1 */}
-
             {/* slide 2 */}
             <Slide
               SrcImg={servico_software}
@@ -58,7 +56,8 @@ function Nossos_Servicos() {
             />
             {/* fim slide 2 */}
 
-            {/* slide 3 */}
+          
+
             <Slide
               SrcImg={servico_marketing}
               AltImg="IMG exemplo de Marketing Digital Estratégico"
@@ -67,9 +66,6 @@ function Nossos_Servicos() {
               TextButtonSlide="Saiba Mais"
               Add_Style_Slide="lg:w-[18%] justify-between"
             />
-            {/* fim slide 3 */}
-
-            {/* slide 4 */}
             <Slide
               SrcImg={servico_design}
               AltImg="IMG exemplo de Design e Identidade Visual"
@@ -78,8 +74,6 @@ function Nossos_Servicos() {
               TextButtonSlide="Saiba Mais"
               Add_Style_Slide="lg:w-[18%] justify-between"
             />
-            {/* fim slide 4 */}
-
             {/* slide 5 */}
             <Slide
               SrcImg={servico_consultoria}

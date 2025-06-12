@@ -8,10 +8,13 @@ import Nosso_Portifolio from "./components/Nosso_Portifolio";
 import {Slides_sites} from "./data/slides"
 import TheFooter from "./components/TheFooter";
 import Quem_Somos from "./components/Quem_Somos";
+import ContactForm from "./components/Contact";
+import Como_Funciona from "./components/como_funciona";
 
 import { motion } from "framer-motion";
 
 function App() {
+  
   return (
     <>
       <div className="flex flex-col flex-nowrap">
@@ -21,7 +24,9 @@ function App() {
         <Nossos_Servicos />
         <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Sites" slides={Slides_sites}/>
         <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Software" slides={Slides_sites}/>
-        <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Marketing" slides={Slides_sites}/>
+        {/* <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Marketing" slides={Slides_sites}/> */}
+        <Como_Funciona/>
+        <ContactForm/>
 
         <TheFooter/>
       </div>

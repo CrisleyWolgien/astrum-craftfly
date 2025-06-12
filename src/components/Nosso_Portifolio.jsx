@@ -23,7 +23,7 @@ function Nosso_Portifolio({ TipoPortifolio, slides, extraSpace = 50 }) {
   }, [extraSpace]);
 
   return (
-    <article className="w-full my-5 mt-0">
+    <article className="w-full my-5 mt-10 " id="Nosso_Portifolio">
       <section className="w-full pb-5 px-6">
         <div className="mb_8">
           <h3 className="text-laranja_hover font-DM_serif italic opacity-80 text-xl mb-2 ml-2">
