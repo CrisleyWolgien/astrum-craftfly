@@ -1,4 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap");
 @import "tailwindcss";
+
+
+/* Depois dos @import, vem suas regras personalizadas */
+@theme {
+  --color-background_dark: #101924;
+  --color-background_nav_dark: #1e2b3a;
+  --color-roxo_home: #4b32f1;
+  --color-laranja_texto: #ffa040;
+  --color-laranja_hover: #ff934a;
+  --color-laranja_button: #f26a1e;
+  --color-Secoes_alternadas: #1a2332;
+  
+
+  --font-DM_serif: "DM Serif Display", serif;
+
+  
+}
+
+.no-drag {
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+  user-drag: none;
+  user-select: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: #101924; /* sua cor de fundo */
