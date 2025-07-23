@@ -22,9 +22,9 @@ function App() {
         <TheHeader />
         <Quem_Somos/>
         <Nossos_Servicos />
-        <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Sites" slides={Slides_sites}/>
+        {/* <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Sites" slides={Slides_sites}/>
         <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Software" slides={Slides_sites}/>
-        {/* <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Marketing" slides={Slides_sites}/> */}
+        <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Marketing" slides={Slides_sites}/> */}
         <Como_Funciona/>
         <ContactForm/>
 

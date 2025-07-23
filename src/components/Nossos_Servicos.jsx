@@ -57,23 +57,6 @@ function Nossos_Servicos() {
             {/* fim slide 2 */}
 
           
-
-            <Slide
-              SrcImg={servico_marketing}
-              AltImg="IMG exemplo de Marketing Digital Estratégico"
-              TitleSlide="Marketing Digital Estratégico"
-              TextSlide="Atraia mais clientes com estratégias pensadas para resultados reais."
-              TextButtonSlide="Saiba Mais"
-              Add_Style_Slide="lg:w-[18%] justify-between"
-            />
-            <Slide
-              SrcImg={servico_design}
-              AltImg="IMG exemplo de Design e Identidade Visual"
-              TitleSlide="Design e Identidade Visual"
-              TextSlide="Dê cara e personalidade à sua marca com design profissional e memorável."
-              TextButtonSlide="Saiba Mais"
-              Add_Style_Slide="lg:w-[18%] justify-between"
-            />
             {/* slide 5 */}
             <Slide
               SrcImg={servico_consultoria}
