@@ -18,6 +18,7 @@ function ServicoSoftware() {
           </p>
         </div>
 
+       
         {/* Imagem e Benefícios */}
         <div className="my-12 flex flex-col lg:flex-row-reverse items-center gap-10">
           <div className="lg:w-1/2">
@@ -59,6 +60,43 @@ function ServicoSoftware() {
             </p>
           </div>
         </div>
+
+         {/* Nova seção: Tipos de Serviço + Orçamento + Processo */}
+        <div className="bg-Secoes_alternadas/35 rounded-lg p-8 my-12 max-w-4xl mx-auto text-gray-300">
+          <h2 className="text-3xl font-bold text-laranja_texto mb-6 text-center">
+            Como Funciona e O Que Oferecemos
+          </h2>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-2 text-white">🛠 Tipos de Serviço</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Sistemas personalizados para automação de processos</li>
+              <li>Integração de ferramentas e APIs</li>
+              <li>Dashboards e relatórios sob medida</li>
+              <li>Ferramentas para eliminar retrabalho manual</li>
+              <li>Manutenção e suporte técnico contínuo</li>
+            </ul>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-2 text-white">💰 Orçamento</h3>
+            <p>
+              O orçamento é <span className="font-semibold">gratuito e sem compromisso</span>. Após entender sua necessidade, enviamos a proposta personalizada em até 24 horas.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2 text-white">📆 Processo de Trabalho</h3>
+            <ol className="list-decimal list-inside space-y-2">
+              <li>Briefing detalhado para mapear suas necessidades.</li>
+              <li>Prototipação e validação das funcionalidades.</li>
+              <li>Desenvolvimento ágil com entregas parciais.</li>
+              <li>Testes e ajustes conforme seu feedback.</li>
+              <li>Entrega final e suporte pós-implantação.</li>
+            </ol>
+          </div>
+        </div>
+
 
         {/* Call to Action */}
         <div className="text-center bg-Secoes_alternadas/35 p-10 rounded-lg shadow-lg shadow-Secoes_alternadas/50">

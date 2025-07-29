@@ -41,6 +41,7 @@ function ServicoSites() {
           </p>
         </div>
 
+       
         {/* Imagem e Benefícios */}
         <div className="my-12 flex flex-col lg:flex-row items-center gap-10">
           <div className="lg:w-1/2">
@@ -85,27 +86,44 @@ function ServicoSites() {
             </p>
           </div>
         </div>
-
-        {/* Nosso Processo */}
-        <div className="my-20">
-          <h2 className="text-3xl font-DM_serif text-laranja_texto mb-10 text-center">
-            Nosso Processo de Desenvolvimento
+         {/* Nova seção: Tipos de Serviço + Orçamento + Processo */}
+        <div className="bg-Secoes_alternadas/35 rounded-lg p-8 my-12 max-w-4xl mx-auto text-gray-300">
+          <h2 className="text-3xl font-bold text-laranja_texto mb-6 text-center">
+            Como Funciona e O Que Oferecemos
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {processo.map((passo) => (
-              <div
-                key={passo.titulo}
-                className="bg-Secoes_alternadas/35 rounded-lg shadow-md p-6"
-              >
-                <h3 className="text-xl text-white font-semibold mb-2">
-                  {passo.titulo}
-                </h3>
-                <p className="text-gray-400 text-sm">{passo.descricao}</p>
-              </div>
-            ))}
+
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-2 text-white">🛠 Tipos de Serviço</h3>
+            <ul className="list-disc list-inside space-y-1">
+              <li>Site Institucional</li>
+              <li>Landing Pages para campanhas</li>
+              <li>Sites responsivos para celulares e desktops</li>
+              <li>Manutenção e atualização de sites</li>
+              <li>Otimização para SEO</li>
+            </ul>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-semibold mb-2 text-white">💰 Orçamento</h3>
+            <p>
+              O orçamento é <span className="font-semibold">gratuito e sem compromisso</span>. Você nos conta o que precisa, analisamos e enviamos a proposta personalizada em até 24 horas.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold mb-2 text-white">📆 Processo de Trabalho</h3>
+            <ol className="list-decimal list-inside space-y-2">
+              <li>Briefing e Planejamento – Entendimento do seu negócio e objetivos.</li>
+              <li>Protótipo e Design – Criamos o visual e a experiência do site.</li>
+              <li>Desenvolvimento – Codificamos o site com foco em performance.</li>
+              <li>Revisão e Entrega – Validamos com você e lançamos o site ao vivo.</li>
+              <li>Suporte pós-lançamento – Acompanhamos para garantir o perfeito funcionamento.</li>
+            </ol>
           </div>
         </div>
 
+
+      
         {/* Call to Action */}
         <div className="text-center bg-Secoes_alternadas/35 p-10 rounded-lg shadow-lg shadow-Secoes_alternadas/50">
           <h2 className="text-3xl font-bold text-white">

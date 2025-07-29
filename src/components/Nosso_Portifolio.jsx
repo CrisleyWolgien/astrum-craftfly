@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import Slide from "./Slide";
 
 function Nosso_Portifolio({ TipoPortifolio, slides, extraSpace = 50 }) {
@@ -56,6 +56,8 @@ function Nosso_Portifolio({ TipoPortifolio, slides, extraSpace = 50 }) {
                 AltImg={slide.AltImg}
                 TitleSlide={slide.TitleSlide}
                 TextSlide={slide.TextSlide}
+                TextButtonSlide={slide.TextButtonSlide} // Adicione isso
+                LinkButton={slide.LinkButton} // E isso
                 Add_Style_Img={slide.Add_Style_Img}
                 Add_Style_Slide={slide.Add_Style_Slide}
                 Add_Style_TextSlide={slide.Add_Style_TextSlide}

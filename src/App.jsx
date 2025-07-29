@@ -6,6 +6,8 @@ import Nossos_Servicos from "./components/Nossos_Servicos";
 import Como_Funciona from "./components/como_funciona";
 import ContactForm from "./components/Contact";
 import TheFooter from "./components/TheFooter";
+import Nosso_Portifolio from "./components/Nosso_Portifolio"; // Adicione esta linha
+import { Slides_sites } from "./data/slides"; // Adicione esta linha
 
 // Crie e importe as páginas de serviços
 import ServicoSites from "./pages/ServicoSites";
@@ -24,9 +26,8 @@ function App() {
               <TheHeader />
               <Quem_Somos />
               <Nossos_Servicos />
-              {/* <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Sites" slides={Slides_sites}/>
-        <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Software" slides={Slides_sites}/>
-        <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Marketing" slides={Slides_sites}/> */}
+              {/* Descomente as linhas abaixo para exibir o portfólio */}
+              <Nosso_Portifolio TipoPortifolio="Desenvolvimento de Sites" slides={Slides_sites}/>
               <Como_Funciona />
               <ContactForm />
             </>
