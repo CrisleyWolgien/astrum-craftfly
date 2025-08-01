@@ -7,11 +7,8 @@ function Nosso_Portifolio({ TipoPortifolio, slides }) {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    // Função para atualizar a largura máxima de arrasto
     const updateWidth = () => {
       if (carousel.current) {
-        // O cálculo correto é a largura total do conteúdo rolável
-        // menos a largura visível do contêiner.
         const scrollWidth = carousel.current.scrollWidth;
         const offsetWidth = carousel.current.offsetWidth;
         
@@ -20,19 +17,19 @@ function Nosso_Portifolio({ TipoPortifolio, slides }) {
       }
     };
 
-    // Um pequeno delay para garantir que as imagens carregaram e o scrollWidth é preciso.
-    // O ideal seria usar um evento de `onLoad` nas imagens, mas um timeout resolve na maioria dos casos.
-    const timer = setTimeout(updateWidth, 100);
+    const resizeObserver = new ResizeObserver(updateWidth);
+    if (carousel.current) {
+      resizeObserver.observe(carousel.current);
+    }
 
-    // Adiciona o listener para redimensionar a janela
-    window.addEventListener("resize", updateWidth);
+    updateWidth();
 
-    // Função de limpeza para remover o listener e o timeout
     return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", updateWidth);
+      if (carousel.current) {
+        resizeObserver.unobserve(carousel.current);
+      }
     };
-  }, [slides]); // A dependência `slides` garante que o cálculo seja refeito se os slides mudarem
+  }, [slides]);
 
   return (
     <article className="w-full my-5 mt-10" id="Nosso_Portifolio">
@@ -47,20 +44,17 @@ function Nosso_Portifolio({ TipoPortifolio, slides }) {
         </div>
 
         <motion.div
-          ref={carousel}
           className="mt-7 sm:max-w-[85%] lg:max-w-[95%] rounded-2xl mx-auto overflow-hidden cursor-grab"
           whileTap={{ cursor: "grabbing" }}
         >
           <motion.div
-            className={`flex items-stretch gap-4 py-2 ${
-              width <= 0 ? "justify-center" : "justify-start"
-            }`}
-            // A restrição de "arraste" para a esquerda é o valor negativo da largura calculada
+            ref={carousel}
+            className="flex items-stretch gap-4 py-2"
+            drag="x"
             dragConstraints={{ right: 0, left: -width }}
-            drag={width > 0 ? "x" : false} // Só permite o arrasto se houver conteúdo transbordando
-            initial={{ x: 200 }}
-            animate={{ x: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
             {slides.map((slide, idx) => (
               <Slide
