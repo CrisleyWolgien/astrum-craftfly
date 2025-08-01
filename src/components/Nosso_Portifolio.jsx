@@ -2,28 +2,40 @@ import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Slide from "./Slide";
 
-function Nosso_Portifolio({ TipoPortifolio, slides, extraSpace = 50 }) {
+function Nosso_Portifolio({ TipoPortifolio, slides }) {
   const carousel = useRef();
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    function updateWidth() {
-      if (!carousel.current) return;
+    // Função para atualizar a largura máxima de arrasto
+    const updateWidth = () => {
+      if (carousel.current) {
+        // O cálculo correto é a largura total do conteúdo rolável
+        // menos a largura visível do contêiner.
+        const scrollWidth = carousel.current.scrollWidth;
+        const offsetWidth = carousel.current.offsetWidth;
+        
+        const newWidth = scrollWidth - offsetWidth;
+        setWidth(newWidth > 0 ? newWidth : 0);
+      }
+    };
 
-      const scrollWidth = carousel.current.scrollWidth;
-      const offsetWidth = carousel.current.offsetWidth;
+    // Um pequeno delay para garantir que as imagens carregaram e o scrollWidth é preciso.
+    // O ideal seria usar um evento de `onLoad` nas imagens, mas um timeout resolve na maioria dos casos.
+    const timer = setTimeout(updateWidth, 100);
 
-      const diff = scrollWidth - offsetWidth + extraSpace;
-      setWidth(diff > 0 ? diff : 0);
-    }
-
-    updateWidth();
+    // Adiciona o listener para redimensionar a janela
     window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, [extraSpace]);
+
+    // Função de limpeza para remover o listener e o timeout
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", updateWidth);
+    };
+  }, [slides]); // A dependência `slides` garante que o cálculo seja refeito se os slides mudarem
 
   return (
-    <article className="w-full my-5 mt-10 " id="Nosso_Portifolio">
+    <article className="w-full my-5 mt-10" id="Nosso_Portifolio">
       <section className="w-full pb-5 px-6">
         <div className="mb_8">
           <h3 className="text-laranja_hover font-DM_serif italic opacity-80 text-xl mb-2 ml-2">
@@ -36,15 +48,16 @@ function Nosso_Portifolio({ TipoPortifolio, slides, extraSpace = 50 }) {
 
         <motion.div
           ref={carousel}
-          className="mt-7 sm:max-w-[85%] lg:max-w-[95%] rounded-2xl mx-auto pb-3 overflow-hidden cursor-grab"
+          className="mt-7 sm:max-w-[85%] lg:max-w-[95%] rounded-2xl mx-auto overflow-hidden cursor-grab"
           whileTap={{ cursor: "grabbing" }}
         >
           <motion.div
-            className={`flex gap-4 py-2 ${
-              width === 0 ? "justify-center" : "justify-start"
+            className={`flex items-stretch gap-4 py-2 ${
+              width <= 0 ? "justify-center" : "justify-start"
             }`}
-            dragConstraints={{ right: 0, left: width ? -width : 0 }}
-            drag={width > 0 ? "x" : false}
+            // A restrição de "arraste" para a esquerda é o valor negativo da largura calculada
+            dragConstraints={{ right: 0, left: -width }}
+            drag={width > 0 ? "x" : false} // Só permite o arrasto se houver conteúdo transbordando
             initial={{ x: 200 }}
             animate={{ x: 0 }}
             transition={{ duration: 1 }}
@@ -56,8 +69,8 @@ function Nosso_Portifolio({ TipoPortifolio, slides, extraSpace = 50 }) {
                 AltImg={slide.AltImg}
                 TitleSlide={slide.TitleSlide}
                 TextSlide={slide.TextSlide}
-                TextButtonSlide={slide.TextButtonSlide} // Adicione isso
-                LinkButton={slide.LinkButton} // E isso
+                TextButtonSlide={slide.TextButtonSlide}
+                LinkButton={slide.LinkButton}
                 Add_Style_Img={slide.Add_Style_Img}
                 Add_Style_Slide={slide.Add_Style_Slide}
                 Add_Style_TextSlide={slide.Add_Style_TextSlide}
